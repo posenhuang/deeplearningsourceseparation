@@ -17,13 +17,16 @@ Reference: http://www.di.ens.fr/~mschmidt/Software/minFunc.html
 that are used to handle the MFCC files.
 Reference: http://www.isle.illinois.edu/sst/software/
 
-4. We use signal processing functions from labrosa.
+4. We use HTK for computing features (MFCC, logmel) (HCopy)
+Reference: http://htk.eng.cam.ac.uk/
+
+5. We use signal processing functions from labrosa.
 Reference: http://labrosa.ee.columbia.edu/
 
-5. We use BSS Eval toolbox Version 2.0, 3.0 for evaluation.
+6. We use BSS Eval toolbox Version 2.0, 3.0 for evaluation.
 Reference: http://bass-db.gforge.inria.fr/bss_eval/
 
-6. We use MIR-1K for singing voice separation task.
+7. We use MIR-1K for singing voice separation task.
 Reference: https://sites.google.com/site/unvoicedsoundseparation/mir-1k
 
 
