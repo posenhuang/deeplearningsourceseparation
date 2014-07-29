@@ -45,3 +45,11 @@ codes/timit/train_timit_demo.m
 TODO
 ====================
 Add more unit tests, comments, timit example
+
+
+
+Reference
+====================
+P.-S. Huang, M. Kim, M. Hasegawa-Johnson, P. Smaragdis, "Singing-Voice Separation From Monaural Recordings Using Deep Recurrent Neural Networks," in International Society for Music Information Retrieval Conference (ISMIR) 2014.
+
+P.-S. Huang, M. Kim, M. Hasegawa-Johnson, P. Smaragdis, "Deep Learning for Monaural Speech Separation," in IEEE International Conference on Acoustic, Speech and Signal Processing 2014.
