@@ -17,7 +17,7 @@ Reference: http://www.di.ens.fr/~mschmidt/Software/minFunc.html
 that are used to handle the MFCC files.
 Reference: http://www.isle.illinois.edu/sst/software/
 
-4. We use HTK for computing features (MFCC, logmel) (HCopy)
+4. We use HTK for computing features (MFCC, logmel) (HCopy).
 Reference: http://htk.eng.cam.ac.uk/
 
 5. We use signal processing functions from labrosa.
