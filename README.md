@@ -45,6 +45,16 @@ TIMIT experiment:
 
 (change baseDir to the path with this README file)
 
+
+Your data:
+
+1. To try the codes on your data, see mir1k setting - put your data into codes/mir1k/Wavfile accordingly.
+ 
+2. Look at the unit test parameters below codes/mir1k/train_mir1k_demo.m. 
+
+3. Tune the parameters and check the results.
+ 
+
 TODO
 ====================
 Add more unit tests, comments, timit example
