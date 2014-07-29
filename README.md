@@ -43,7 +43,7 @@ TIMIT experiment:
 
 1. codes/timit/train_timit_demo.m
 
-(change baseDir to the path with current this README file)
+(change baseDir to the path with this README file)
 
 TODO
 ====================
