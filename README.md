@@ -29,15 +29,17 @@ Reference: https://sites.google.com/site/unvoicedsoundseparation/mir-1k
 
 Getting Started
 ====================
-MIR-1K experiment
-codes/mir1k/train_mir1k_demo.m
-codes/mir1k/run_test_single_mode.m
+MIR-1K experiment:
 
-trained model: 
+1. training: codes/mir1k/train_mir1k_demo.m
+ 
+2. testing: codes/mir1k/run_test_single_mode.m
+
+3. trained model: 
 http://www.ifp.illinois.edu/~huang146/DNN_separation/model_400.mat
 -> put the model at codes/mir1k/model_demo
 
-TIMIT experiment
+TIMIT experiment:
 codes/timit/train_timit_demo.m
 
 (change baseDir)
