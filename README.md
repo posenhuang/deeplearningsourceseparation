@@ -40,7 +40,8 @@ http://www.ifp.illinois.edu/~huang146/DNN_separation/model_400.mat
 -> put the model at codes/mir1k/model_demo
 
 TIMIT experiment:
-codes/timit/train_timit_demo.m
+
+1. codes/timit/train_timit_demo.m
 
 (change baseDir)
 
