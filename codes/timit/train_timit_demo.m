@@ -10,7 +10,8 @@ baseDir= '../../';
 codeDir = [baseDir,'codes', filesep];
 minFuncDir = [baseDir, 'tools', filesep, 'minFunc_2012', filesep];
 
-saveDir = [codeDir,filesep,'discrim_joint_offset_all_results'];
+saveDir = [codeDir,filesep,'timit',...
+           filesep,'discrim_joint_offset_all_results'];
 
 addpath([baseDir, filesep,'tools', filesep,'labrosa']);
 addpath([baseDir, filesep,'tools', filesep,'bss_eval']);
@@ -26,7 +27,8 @@ addpath(CFGPath);
 
 %% setup network architecture
 eI = [];
-eI.MFCCorlogMelorSpectrum=MFCCorlogMelorSpectrum; % 0- mfcc, 1- logmel, 2- spectrum
+% 0- mfcc, 1- logmel, 2- spectrum
+eI.MFCCorlogMelorSpectrum=MFCCorlogMelorSpectrum; 
 eI.CFGPath=CFGPath;
 eI.seqLen = [1 10 25 50 100];
 % eI.seqLen = [1];
@@ -258,4 +260,5 @@ opt = 1;
 train_timit_demo(context_win, hidden_units, num_layers, isdropout, isRNN, iscleanonly,...
     circular_step , isinputL1, MFCCorlogMelorSpectrum, framerate, pos_neg_r, ...
     outputnonlinear, opt, act, train_mode, const, const2, isGPU)
+
 

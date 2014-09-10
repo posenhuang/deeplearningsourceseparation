@@ -1,3 +1,6 @@
 # Emacs backup files
 *~
 *.asv
+mir1k/discrim*
+mir1k/model_demo/results
+timit/discrim*
