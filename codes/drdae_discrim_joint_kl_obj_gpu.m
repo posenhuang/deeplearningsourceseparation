@@ -202,11 +202,8 @@ for c = 1:numel(data_cell)
             y1= abs_a1./(abs_a1+abs_a2+1e-10).* mixture;
             y2= abs_a2./(abs_a1+abs_a2+1e-10).* mixture;
         elseif strcmp(eI.opt,'softabs_const')|| strcmp(eI.opt,'softabs_kl_const'),
-
             y1= abs(a1)./(abs(a1)+abs(a2)+const).* mixture;
             y2= abs(a2)./(abs(a1)+abs(a2)+const).* mixture;
-
-
         elseif strcmp(eI.opt, 'softquad')
             y1= (a1.^2)./((a1.^2)+(a2.^2)+1e-10).* mixture;
             y2= (a2.^2)./((a1.^2)+(a2.^2)+1e-10).* mixture;
@@ -379,6 +376,26 @@ wCost = numTotal * eI.lambda * sum(gtheta.^2);
 grad = rnn_stack2params(stackGrad, eI, W_t_grad, true);
 grad = grad + 2 * numTotal * eI.lambda * gtheta;
 
+%% clipping
+if isfield(eI,'clip') && eI.clip~=0, % if eI.clip==0, no clip
+  if eI.clip > 0 % method one -clip the whole
+      norm_grad = norm(grad);  
+      fprintf('norm_grad:%f\n', norm_grad);
+      % avoid numerial problem
+      if norm_grad <0 || norm_grad > 1e15 || isnan(norm_grad) || isinf(norm_grad),
+          grad = zeros(size(grad));
+          fprintf('set gradient to zeros\n');
+      end  
+      if norm_grad > eI.clip 
+         grad = eI.clip * grad/ norm_grad;    
+      end  
+  else % method two - clip each entry
+      clip_value = -1*eI.clip;
+      grad(grad > clip_value)=clip_value;
+      grad(grad < -clip_value)=-clip_value;     
+  end
+end
+%%
 cost = gather((cost));
 grad = gather((grad));
 wCost = gather((wCost));
