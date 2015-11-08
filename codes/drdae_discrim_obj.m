@@ -57,7 +57,16 @@ cost = 0; numTotal = 0;
 outputDim = eI.layerSizes(end);
 %% setup structures to aggregate gradients
 stackGrad = cell(1,numel(eI.layerSizes));
-W_t_grad = zeros(size(W_t));
+% W_t_grad = zeros(size(W_t));
+if isfield(eI, 'fullRNN') && eI.fullRNN==1
+   W_t_grad = cell(1,numel(eI.layerSizes)-1);
+    for l = 1:numel(eI.layerSizes)-1
+        W_t_grad{l}.W = zeros(size(W_t{l}.W));
+    end
+else
+   W_t_grad = zeros(size(W_t));
+end
+
 for l = 1:numel(eI.layerSizes)
     stackGrad{l}.W = zeros(size(stack{l}.W));
     stackGrad{l}.b = zeros(size(stack{l}.b));
@@ -214,6 +223,28 @@ wCost = numTotal * eI.lambda * sum(theta.^2);
 grad = rnn_stack2params(stackGrad, eI, W_t_grad, true);
 grad = grad + 2 * numTotal * eI.lambda * theta;
 
+
+%% clipping
+if isfield(eI,'clip') && eI.clip~=0, % if eI.clip==0, no clip
+  if eI.clip > 0 % method one -clip the whole
+      norm_grad = norm(grad);  
+      fprintf('norm_grad:%f\n', norm_grad);
+      % avoid numerial problem
+      if norm_grad <0 || norm_grad > 1e15 || isnan(norm_grad) || isinf(norm_grad),
+          grad = zeros(size(grad));
+          fprintf('set gradient to zeros\n');
+      end  
+      if norm_grad > eI.clip 
+         grad = eI.clip * grad/ norm_grad;    
+      end  
+  else % method two - clip each entry
+      clip_value = -1*eI.clip;
+      grad(grad > clip_value)=clip_value;
+      grad(grad < -clip_value)=-clip_value;     
+  end
+end
+
+%%
 avCost = cost/numTotal;
 avWCost = wCost/numTotal;
 cost = cost + wCost;
@@ -221,6 +252,12 @@ cost = cost + wCost;
 % print output
 if ~isSlave && ~isempty(targets_cell)
     fprintf('loss:  %f  wCost:  %f \t',avCost, avWCost);
-    fprintf('wNorm: %f  rNorm: %f  oNorm: %f\n',sum(stack{1}.W(:).^2),...
-        sum(W_t(:).^2), sum(stack{end}.W(:).^2));
+
+    if isfield(eI, 'fullRNN') && eI.fullRNN==1
+        fprintf('wNorm: %f  rNorm: %f  oNorm: %f\n',sum(stack{1}.W(:).^2),...
+            sum(W_t{1}.W(:).^2), sum(stack{end}.W(:).^2));
+    else
+        fprintf('wNorm: %f  rNorm: %f  oNorm: %f\n',sum(stack{1}.W(:).^2),...
+            sum(W_t(:).^2), sum(stack{end}.W(:).^2));
+    end
 end;
