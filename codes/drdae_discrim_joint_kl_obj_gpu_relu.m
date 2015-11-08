@@ -279,11 +279,33 @@ for c = 1:numel(data_cell)
     end
 end
 
+
 %% stack gradients into single vector and compute weight cost
 wCost = numTotal * eI.lambda * sum(gtheta.^2);
 grad = rnn_stack2params(stackGrad, eI, W_t_grad, true);
 grad = grad + 2 * numTotal * eI.lambda * gtheta;
 
+%% clipping
+if isfield(eI,'clip') && eI.clip~=0, % if eI.clip==0, no clip
+ if eI.clip > 0 % method one -clip the whole
+      norm_grad = norm(grad);  
+      fprintf('norm_grad:%f\n', norm_grad);
+      % avoid numerial problem
+      if norm_grad <0 || norm_grad > 1e15 || isnan(norm_grad) || isinf(norm_grad),
+          grad = zeros(size(grad));
+          fprintf('set gradient to zeros\n');
+      end  
+      if norm_grad > eI.clip 
+         grad = eI.clip * grad/ norm_grad;    
+      end  
+  else % method two - clip each entry
+      clip_value = -1*eI.clip;
+      grad(grad > clip_value)=clip_value;
+      grad(grad < -clip_value)=-clip_value;     
+  end
+end
+
+%%
 cost = gather((cost));
 grad = gather((grad));
 wCost = gather((wCost));
