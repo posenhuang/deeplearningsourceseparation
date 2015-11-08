@@ -19,8 +19,9 @@ for l = 1 : numel(eI.layerSizes)
     % Xaxier's scaling factor
     s = sqrt(6) / sqrt(prevSize + curSize);
     % Ilya suggests smaller scaling for recurrent layer
-    if l == eI.temporalLayer
-        s = sqrt(6) / sqrt(prevSize + 2*curSize);
+    if (~isfield(eI, 'fullRNN') && l == eI.temporalLayer) ||...
+        (isfield(eI, 'fullRNN') && eI.fullRNN==1 && l< numel(eI.layerSizes))
+         s = sqrt(6) / sqrt(prevSize + 2*curSize);
     end;
     stack{l}.W = rand(curSize, prevSize)*2*s - s;
     stack{l}.b = zeros(curSize, 1);
