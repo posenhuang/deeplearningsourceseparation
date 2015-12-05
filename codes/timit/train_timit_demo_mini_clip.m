@@ -203,8 +203,8 @@ options.outputFcn = @save_callback_timit_general;
 %% compute feature
 SNRs=0;
 
-[train1, fs, nbits]=wavread('female_train.wav');
-[train2, fs, nbits]=wavread('male_train.wav');
+[train1, fs]=audioread('female_train.wav');
+[train2, fs]=audioread('male_train.wav');
 
 maxLength=max([length(train1), length(train2)]);
 train1(end+1:maxLength)=eps;
