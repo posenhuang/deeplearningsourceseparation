@@ -1,4 +1,4 @@
-function [mixture, signal_1, signal_2]=load_data_mode(speaker_setting, data_mode)
+function [mixture, signal_1, signal_2]=load_data_mode(speaker_setting, data_mode, data_path)
 %% load signals and STFT
 % eI -- use eI.data_mode
 % mode -- 0: training, 1: valid, 2: testing
@@ -17,14 +17,12 @@ elseif speaker_setting==2,
 else
    fprintf('invalid data_mode');
 end
- 
-% TSPpath='~/Documents/Study/Research - UIUC/Sound Repository/TSP_speech/48k/';
- 
+  
 fs=16000;
  
-filenames=dir(['Data',filesep, s1id, filesep,'*.wav']);
+filenames=dir([data_path, filesep, s1id, filesep,'*.wav']);
 % load 60 wav files at the same time (source 1)
-s1(:,1)=cellfun(@(x) audioread(['Data', filesep, s1id, filesep, x]), {filenames.name}, 'UniformOutput', 0);
+s1(:,1)=cellfun(@(x) audioread([data_path, filesep, s1id, filesep, x]), {filenames.name}, 'UniformOutput', 0);
 % downsample to 16kHz
 s1=cellfun(@(x) resample(x, fs, 48000), s1, 'UniformOutput', 0);
 % group signals
@@ -36,8 +34,8 @@ train1(round(8/9*length(train1)):end)=[];
  
 % ditto for source 2
 
-filenames=dir(['Data',filesep, s2id, filesep,'*.wav']);
-s2(:,1)=cellfun(@(x) audioread(['Data', filesep, s2id, filesep, x]), {filenames.name}, 'UniformOutput', 0);
+filenames=dir([data_path,filesep, s2id, filesep,'*.wav']);
+s2(:,1)=cellfun(@(x) audioread([data_path, filesep, s2id, filesep, x]), {filenames.name}, 'UniformOutput', 0);
 s2=cellfun(@(x) resample(x, fs, 48000), s2, 'UniformOutput', 0);
 train2 = cell2mat(s2);
 test2 = train2(round(.9*length(train2)):end);
@@ -79,21 +77,5 @@ elseif data_mode==2,
 else
     fprintf('incorrect data mode');
 end
-%  
-% %
-% FRAMESIZE=512;% 1024;%
-% WINDOW=sin(0:pi/FRAMESIZE:pi-pi/FRAMESIZE)';
-%  
-% [Train1, Fs, Ts, Ps]=spectrogram(train1, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [Train2, Fs, Ts, Ps]=spectrogram(train2, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [TrainX, Fs, Ts, Ps]=spectrogram(trainx, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-%  
-%  
-%  
-% [Val1, Fs, Ts, Ps]=spectrogram(val1, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [Val2, Fs, Ts, Ps]=spectrogram(val2, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [ValX, Fs, Ts, Ps]=spectrogram(valx, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [Test1, Fs, Ts, Ps]=spectrogram(test1, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [Test2, Fs, Ts, Ps]=spectrogram(test2, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
-% [TestX, Fs, Ts, Ps]=spectrogram(testx, WINDOW, FRAMESIZE/2, FRAMESIZE, fs);
+
 
