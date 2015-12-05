@@ -33,6 +33,7 @@ eI = [];
 eI.MFCCorlogMelorSpectrum=MFCCorlogMelorSpectrum; 
 eI.CFGPath=CFGPath;
 eI.seqLen = [1 10 25 50 100];
+eI.DataPath = [baseDir,filesep,'codes',filesep,'TSP', filesep,'Data'];
 % eI.seqLen = [1];
 
 eI.framerate=framerate;
@@ -207,16 +208,7 @@ options.outputFcn = @save_callback_TSP_general;
 %% compute feature
 SNRs=0;
 
-[trainx, train1, train2]=load_data_mode(eI.data_mode, 0); % 0 for training 
-% [train1, fs, nbits]=wavread('female_train.wav');
-% [train2, fs, nbits]=wavread('male_train.wav');
-% 
-% maxLength=max([length(train1), length(train2)]);
-% train1(end+1:maxLength)=eps;
-% train2(end+1:maxLength)=eps;
-% 
-% train1=train1./sqrt(sum(train1.^2));
-% train2=train2./sqrt(sum(train2.^2));
+[trainx, train1, train2]=load_data_mode(eI.data_mode, 0, eI.DataPath); % 0 for training 
 
 eI.fs=16000;
 %%
@@ -234,7 +226,6 @@ for ii=1:MaxIter
         
         train2_shift = [train2(ioffset: end); train2(1: ioffset-1)];
         [data_cell, targets_cell, mixture_spectrum]=formulate_data(train1, train2_shift, eI, eI.train_mode); %0 -- chunk, 2--no chunk
-
  
         if iscleanonly==1,  % for non joint training
             eI.isdiscrim=1;
@@ -254,7 +245,6 @@ fprintf('%s\tdevmaxiter:\t%d\tdevSDR:\t%.3f\ttestSDR:\t%.3f\n',modelname, SDR.de
 return; 
 
 %% unit test
-
 % context window size
 context_win = 1;
 % hidden units
@@ -306,15 +296,15 @@ train_TSP_demo_mini_clip(context_win, hidden_units, num_layers, isdropout, isRNN
     outputnonlinear, opt, act, train_mode, const, const2, isGPU, batchsize, ...
     max_iter, bfgs_iter, clip, lambda, data_mode)
 
-%% rnn-all logmel
+%% rnn-all logmel (demo model)
 % context window size
 context_win = 1;
 % hidden units
-hidden_units = 100;
+hidden_units = 300;
 num_layers = 2;
 isdropout = 0;
 % RNN temporal connection
-isRNN = 3;
+isRNN = 1;
 % One output source or two
 iscleanonly = 0;
 % Circular shift step
@@ -324,9 +314,9 @@ isinputL1 = 0;
 % 0: MFCC, 1: logmel, 2: spectra
 MFCCorlogMelorSpectrum = 1;
 % feature frame rate
-framerate = 32;
+framerate = 64;
 % discriminative training gamma parameter
-pos_neg_r = 0.075;
+pos_neg_r = 0;
 % Last layer - linear or nonlinear
 outputnonlinear = 0;
 % soft mask obj
@@ -348,9 +338,10 @@ opt = 1;
 batchsize = 10000;
 max_iter =10;
 bfgs_iter=50;
-clip = -15;
-
-train_timit_demo_mini_clip(context_win, hidden_units, num_layers, isdropout, isRNN, iscleanonly,...
+clip = 0;
+data_mode=0; 
+lambda =0;
+train_TSP_demo_mini_clip(context_win, hidden_units, num_layers, isdropout, isRNN, iscleanonly,...
     circular_step , isinputL1, MFCCorlogMelorSpectrum, framerate, pos_neg_r, ...
-    outputnonlinear, opt, act, train_mode, const, const2, isGPU, batchsize, max_iter, bfgs_iter, clip)
-
+    outputnonlinear, opt, act, train_mode, const, const2, isGPU, batchsize, ...
+    max_iter, bfgs_iter, clip, lambda, data_mode)
