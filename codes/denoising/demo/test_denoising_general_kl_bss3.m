@@ -34,7 +34,6 @@ function output = test_denoising_general_kl_bss3(mixture_wav, theta, eI, stage, 
     end
 
     %% input
-%         spectrum.mix = scf * stft(mixture, nFFT ,windows, hop);          
     wn = sqrt( hann( nFFT, 'periodic')); % hann window        
     if eI.MFCCorlogMelorSpectrum==2 || eI.MFCCorlogMelorSpectrum==3
      	spectrum.mix = scf * stft2( mixture, nFFT, hop, 0, wn); 
@@ -55,58 +54,7 @@ function output = test_denoising_general_kl_bss3(mixture_wav, theta, eI, stage, 
 
     output.source_signal =m.*spectrum.mix(:, 1:min(size(m,2), size(spectrum.mix,2)));
     output.source_noise= spectrum.mix-output.source_signal;
-  
-%     wavout.noise = istft(source_noise, nFFT ,windows, hop)';
-%     wavout.signal = istft(source_signal, nFFT ,windows, hop)';
-
-%     prediction = source_signal;
-%         wavout.noise = istft(source_noise, nFFT ,windows, hop)';
-%         wavout.signal = istft(source_signal, nFFT ,windows, hop)';
-% 
-%         Parms =  BSS_EVAL ( s1, s2, wavout_signal, wavout_noise, mixture );
-%         if  isfield(eI,'bss3') && eI.bss3==1
-%             Parms_bss3 =  BSS_3_EVAL ( s1, s2, wavout_signal, wavout_noise, mixture );
-%         else
-%             Parms_bss3.SDR_bss3=0; Parms_bss3.SIR_bss3=0; Parms_bss3.SAR_bss3=0; Parms_bss3.NSDR_bss3=0;
-%         end
-% 
-%         if isfield(eI,'ioffset'),
-%             fprintf('%s %s %s ioffset:%d iter:%d - soft mask - \tSDR:%.3f\tSIR:%.3f\tSAR:%.3f\tNSDR:%.3f\n', ...
-%                 modelname, testname, stage, eI.ioffset, iter, Parms.SDR, Parms.SIR, Parms.SAR, Parms.NSDR);
-%             fprintf('%s %s %s ioffset:%d iter:%d - soft mask bss3- \tSDR:%.3f\tSIR:%.3f\tSAR:%.3f\tNSDR:%.3f\n', ...
-%                 modelname, testname, stage, eI.ioffset, iter,Parms_bss3.SDR_bss3, Parms_bss3.SIR_bss3, Parms_bss3.SAR_bss3, Parms_bss3.NSDR_bss3);
-% 
-%               if isfield(eI,'writewav') && eI.writewav==1
-%                 if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter'))
-%                     wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_noise.wav']);
-%                     wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_signal.wav']);
-%                 end
-%               end
-%         else % finish at once
-%             fprintf('%s %s %s iter:%d - soft mask - \tSDR:%.3f\tSIR:%.3f\tSAR:%.3f\tNSDR:%.3f\n', ...
-%                 modelname, testname, stage, iter, Parms.SDR, Parms.SIR, Parms.SAR, Parms.NSDR);
-%             fprintf('%s %s %s iter:%d - soft mask bss3- \tSDR:%.3f\tSIR:%.3f\tSAR:%.3f\tNSDR:%.3f\n', ...
-%                 modelname, testname, stage, iter, Parms_bss3.SDR_bss3, Parms_bss3.SIR_bss3, Parms_bss3.SAR_bss3, Parms_bss3.NSDR_bss3);
-% 
-%             if isfield(eI,'writewav') && eI.writewav==1
-%                if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter')) % not called by save_callback
-%                     wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_softmask_noise.wav']);
-%                     wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_softmask_signal.wav']);
-%                end
-%             end
-%         end
-
-%         GNSDR.soft(ifile) = Parms.NSDR;
-%         GNSDR_bss3.soft(ifile) = Parms_bss3.NSDR_bss3;
-
+ 
 return;
-
-%% unit test
-% (TODO) add
-% savedir='results';
-% iter=200;
-% modelname='model_test';
-% load([savedir,modelname, filesep, 'model_',num2str(iter),'.mat']);
-% test_mir1k_general_kl_bss3(modelname_in, theta, eI, stage, iter);
 
 end
