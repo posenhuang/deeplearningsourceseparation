@@ -10,39 +10,35 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
 1. Training code: ```codes/mir1k/train_mir1k_demo.m```
  
 2. Demo
-    - Download a trained model 
-    ```http://www.ifp.illinois.edu/~huang146/DNN_separation/model_400.mat```
-    - Put the model at ```codes/mir1k/demo``` and go to the folder
-    - Run: ```codes/mir1k/demo/run_test_single_model.m```
+ - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/model_400.mat```
+ - Put the model at ```codes/mir1k/demo``` and go to the folder
+ - Run: ```codes/mir1k/demo/run_test_single_model.m```
 
 
 #### TIMIT experiment (speech separation)
-1. Training code: ```codes/timit/train_timit_demo.m```
+1. Training code: ```codes/timit/train_timit_demo.m``` and ```codes/timit/train_timit_demo_mini_clip.m```
 
 2. Demo 
-    - Download a trained model 
-    ```http://www.ifp.illinois.edu/~huang146/DNN_separation/timit_model_70.mat```
-    - Put the model at ```codes/timit/demo``` and go to the folder
-    - Run: ```codes/timit/demo/run_test_single_model.m```
+ - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/timit_model_70.mat```
+ - Put the model at ```codes/timit/demo``` and go to the folder
+ - Run: ```codes/timit/demo/run_test_single_model.m```
 
 
 #### TSP experiment (speech separation)
 
-1. Training code: ```codes/timit/train_timit_demo.m```
+1. Training code: ```codes/TSP/train_TSP_demo_mini_clip.m```
 
 2. Demo
-   - Download a trained model
-    ```http://www.ifp.illinois.edu/~huang146/DNN_separation/TSP_model_RNN1_win1_h300_l2_r0_64ms_1000000_softabs_linearout_RELU_logmel_trn0_c1e-10_c0.001_bsz100000_miter10_bf50_c0_d0_7650.mat```
-   - Put the model at ```codes/TSP/demo``` and go to the folder
-   - Run the demo code at ```codes/TSP/demo/run_test_single_model.m```
+ - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/TSP_model_RNN1_win1_h300_l2_r0_64ms_1000000_softabs_linearout_RELU_logmel_trn0_c1e-10_c0.001_bsz100000_miter10_bf50_c0_d0_7650.mat```
+ - Put the model at ```codes/TSP/demo``` and go to the folder
+ - Run the demo code at ```codes/TSP/demo/run_test_single_model.m```
 
 #### Denosing experiment
 
 1. Demo
-    - Download a trained model
-    ```http://www.ifp.illinois.edu/~huang146/DNN_separation/denoising_model_870.mat```
-    - Put the model at ```codes/denoising/demo``` and go to the folder
-    - Run the demo code at ```codes/denoising/demo/run_test_single_model.m```
+ - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/denoising_model_870.mat```
+ - Put the model at ```codes/denoising/demo``` and go to the folder
+ - Run the demo code at ```codes/denoising/demo/run_test_single_model.m```
 
 
 ###Dependencies
