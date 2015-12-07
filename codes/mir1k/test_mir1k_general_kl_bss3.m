@@ -1,11 +1,12 @@
 function test_mir1k_general_kl_bss3(modelname_in, theta, eI, stage, iter)
  % Run test and evaluation given a model.
 
-if strcmp(stage,'testall')
+if strcmp(stage,'testall') || strcmp(stage,'done')
 	eval_types={'dev','test'};
 else
 	eval_types={'dev'};
 end
+normalize = inline('x./max(abs(x)+1e-3)');
 
 for ieval=1:numel(eval_types)
     eval_files= dir( [eI.DataPath,filesep, eval_types{ieval}, filesep, '*wav']);
@@ -46,7 +47,7 @@ for ieval=1:numel(eval_types)
         if (strcmp(eval_files(ifile).name,'.') || ...
             strcmp(eval_files(ifile).name,'..')), continue; end
 
-        [test_wav,fs]=wavread([eI.DataPath,eval_types{ieval},filesep,...
+        [test_wav,fs]=audioread([eI.DataPath,eval_types{ieval},filesep,...
                                 eval_files(ifile).name]);
         s1 = test_wav(:,2); % singing
         s2 = test_wav(:,1); % music
@@ -125,8 +126,8 @@ for ieval=1:numel(eval_types)
 
            if isfield(eI,'writewav') && eI.writewav==1
             if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter'))
-            wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_nomask_noise.wav']);
-            wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_nomask_signal.wav']);
+            audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_nomask_noise.wav'], normalize(wavout_noise), fs);
+            audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_nomask_signal.wav'], normalize(wavout_signal), fs);
             end
            end
         else % finish at once
@@ -137,8 +138,8 @@ for ieval=1:numel(eval_types)
 
          if isfield(eI,'writewav') && eI.writewav==1
            if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter')) % not called by save_callback
-            wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_nomask_noise.wav']);
-            wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_nomask_signal.wav']);
+            audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_nomask_noise.wav'], normalize(wavout_noise), fs);
+            audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_nomask_signal.wav'], normalize(wavout_signal), fs);
            end
          end
 
@@ -179,8 +180,8 @@ for ieval=1:numel(eval_types)
 
            if isfield(eI,'writewav') && eI.writewav==1
             if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter'))
-                wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_bmask_noise.wav']);
-                wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_bmask_signal.wav']);
+                audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_bmask_noise.wav'], normalize(wavout_noise), fs);
+                audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_bmask_signal.wav'], normalize(wavout_signal), fs);
             end
            end
         else % finish at once
@@ -191,8 +192,8 @@ for ieval=1:numel(eval_types)
 
             if isfield(eI,'writewav') && eI.writewav==1
                if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter')) % not called by save_callback
-                wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_bmask_noise.wav']);
-                wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_bmask_signal.wav']);
+                 audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_bmask_noise.wav'], normalize(wavout_noise), fs);
+                 audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_bmask_signal.wav'], normalize(wavout_signal), fs);
                end
             end
         end
@@ -230,8 +231,8 @@ for ieval=1:numel(eval_types)
 
               if isfield(eI,'writewav') && eI.writewav==1
                 if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter'))
-                    wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_noise.wav']);
-                    wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_signal.wav']);
+                  audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_noise.wav'], normalize(wavout_noise), fs);
+                  audiowrite([eI.saveDir,testname,'_ioff',num2str(eI.ioffset),'_softmask_signal.wav'], normalize(wavout_signal), fs);
                 end
               end
         else % finish at once
@@ -242,8 +243,8 @@ for ieval=1:numel(eval_types)
 
             if isfield(eI,'writewav') && eI.writewav==1
                if exist('stage','var')&& (strcmp(stage,'done')||strcmp(stage,'iter')) % not called by save_callback
-                    wavwrite(wavout_noise, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_softmask_noise.wav']);
-                    wavwrite(wavout_signal, fs, [eI.saveDir,testname,'_iter',num2str(iter),'_softmask_signal.wav']);
+                 audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_softmask_noise.wav'], normalize(wavout_noise), fs);
+                 audiowrite([eI.saveDir,testname,'_iter',num2str(iter),'_softmask_signal.wav'], normalize(wavout_signal), fs);
                end
             end
         end

@@ -18,7 +18,7 @@ function [DATA, mixture_spectrum, eI] = compute_features(dmix, eI)
     else
         %% training features
         filename=[eI.saveDir,'dmix_temp.wav'];
-        wavwrite(dmix, eI.fs, filename);
+        audiowrite(filename, dmix, eI.fs);
 
         if eI.framerate==64,
             if eI.MFCCorlogMelorSpectrum==0, %MFCC
