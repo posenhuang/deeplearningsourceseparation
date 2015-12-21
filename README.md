@@ -4,8 +4,8 @@
 Webpage: https://sites.google.com/site/deeplearningsourceseparation/
 
 
-## Experiments
-### MIR-1K experiment (singing voice separation)
+##Experiments
+###MIR-1K experiment (singing voice separation)
 
 1. Training code: ```codes/mir1k/train_mir1k_demo.m```
  
@@ -15,7 +15,7 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
  - Run: ```codes/mir1k/demo/run_test_single_model.m```
 
 
-#### TIMIT experiment (speech separation)
+###TIMIT experiment (speech separation)
 1. Training code: ```codes/timit/train_timit_demo.m``` and ```codes/timit/train_timit_demo_mini_clip.m```
 
 2. Demo 
@@ -24,7 +24,7 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
  - Run: ```codes/timit/demo/run_test_single_model.m```
 
 
-#### TSP experiment (speech separation)
+###TSP experiment (speech separation)
 
 1. Training code: ```codes/TSP/train_TSP_demo_mini_clip.m```
 
@@ -33,7 +33,7 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
  - Put the model at ```codes/TSP/demo``` and go to the folder
  - Run the demo code at ```codes/TSP/demo/run_test_single_model.m```
 
-#### Denosing experiment
+###Denosing experiment
 
 1. Demo
  - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/denoising_model_870.mat```
@@ -41,7 +41,7 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
  - Run the demo code at ```codes/denoising/demo/run_test_single_model.m```
 
 
-###Dependencies
+##Dependencies
 1. The package is modified based on [rnn-speech-denoising](https://github.com/amaas/rnn-speech-denoising)
 
 2. The software depends on Mark Schmidt's [minFunc](http://www.di.ens.fr/~mschmidt/Software/minFunc.html) package for convex optimization.
@@ -58,7 +58,7 @@ that are used to handle the MFCC files.
 7. We use [MIR-1K](https://sites.google.com/site/unvoicedsoundseparation/mir-1k) for singing voice separation task.
 
 
-###Work on your data:
+##Work on your data:
 1. To try the codes on your data, see mir1k, TSP settings - put your data into ```codes/mir1k/Wavfile``` or ```codes/TSP/Data/``` accordingly.
  
 2. Look at the unit test parameters below ```codes/mir1k/train_mir1k_demo.m```, ```codes/TSP/train_TSP_demo_mini_clip.m``` (with minibatch lbfgs, gradient clipping)
