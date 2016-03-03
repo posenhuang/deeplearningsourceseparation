@@ -24,7 +24,7 @@ function run_test_single_model
     j=870;
     
     % Load model
-    load([ModelPath, filesep, 'model_', num2str(j),'.mat']);
+    load([ModelPath, filesep, 'denoising_model_', num2str(j),'.mat']);
     eI.saveDir = [baseDir, filesep, 'codes', filesep, 'denoising', ...
         filesep, 'demo', filesep, 'results', filesep];
     %%
