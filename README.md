@@ -72,3 +72,6 @@ that are used to handle the MFCC files.
 
 3. P.-S. Huang, M. Kim, M. Hasegawa-Johnson, P. Smaragdis, "[Deep Learning for Monaural Speech Separation](http://posenhuang.github.io/papers/DNN_Separation_ICASSP2014.pdf)," in IEEE International Conference on Acoustic, Speech and Signal Processing 2014.
 
+##License
+
+Free for personal or research use; for commercial use please contact me.
