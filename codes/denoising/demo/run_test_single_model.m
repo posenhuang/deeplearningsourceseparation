@@ -4,9 +4,6 @@ function run_test_single_model
     addpath([baseDir, filesep, 'codes']);
     addpath([baseDir, filesep, 'codes', filesep, 'denoising']);
 
-    addpath([baseDir, filesep, 'codes', filesep, 'denoising', filesep, 'Data']);
-    addpath([baseDir, filesep, 'codes', filesep, 'denoising', filesep, 'drnn']);
-
     addpath([baseDir, filesep, 'tools', filesep,'bss_eval']);
     addpath([baseDir, filesep, 'tools', filesep,'bss_eval_3']);
     addpath([baseDir, filesep, 'tools', filesep,'labrosa']);
