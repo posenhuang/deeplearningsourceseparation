@@ -5,7 +5,6 @@ function run_test_single_model
     addpath([baseDir, filesep, 'tools', filesep, 'bss_eval']);
     addpath([baseDir, filesep, 'tools', filesep, 'bss_eval_3']);
     addpath([baseDir, filesep, 'tools', filesep, 'labrosa']);
-    addpath([baseDir, filesep, 'tools', filesep, 'htk', filesep, 'bin']);    
     addpath([baseDir, filesep, 'codes', filesep, 'TSP']);
     
     ModelPath=[baseDir, filesep, 'codes',filesep, 'TSP', filesep, 'model_demo'];
