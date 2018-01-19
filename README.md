@@ -34,10 +34,12 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
  - Run the demo code at ```codes/TSP/demo/run_test_single_model.m```
 
 ### Denosing experiment
+1. Put original ```FCJF0, FDAW0', FDML0, FECD0, 'FETB0', 'FJSP0', 'FKFB0', 'FMEM0', 'FSAH0', 'FSJK1', 'FSMA0', 'FTBR0', 'FVFB0' 'FVMH0```  
+   of the original TIMIT data under ```codes/denoising/Data/timit/```
 
-1. Training code: ```codes/denoising/train_denoising_demo.m```
+2. Training code: ```codes/denoising/train_denoising_demo.m```
 
-2. Demo
+3. Demo
  - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/denoising_model_870.mat```
  - Put the model at ```codes/denoising/demo``` and go to the folder
  - Run the demo code at ```codes/denoising/demo/run_test_single_model.m```
