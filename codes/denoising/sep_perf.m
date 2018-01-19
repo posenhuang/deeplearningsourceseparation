@@ -1,5 +1,11 @@
 function [sdr,sir,sar,st,pq,ps] = sep_perf( sep, orig, sr, o)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Which measures to compute
 if ~exist( 'o', 'var')
 	o = 'diaqst';

@@ -1,4 +1,11 @@
 function [mixture, signal_1, signal_2]=load_data_mode(speaker_setting, data_mode, data_path)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 %% load signals and STFT
 % eI -- use eI.data_mode
 % mode -- 0: training, 1: valid, 2: testing

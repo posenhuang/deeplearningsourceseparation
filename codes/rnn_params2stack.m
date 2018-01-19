@@ -1,4 +1,11 @@
 function [ stack, W_t ] = rnn_params2stack( params, eI )
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 %RNN_PARAMS2STACK Convert single parameter vector to stack weight structure
 %   Extracts stack based on architecture information in eI
 

@@ -1,4 +1,11 @@
 function [ stack, W_t ] = initialize_weights( eI )
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 %INITIALIZE_WEIGHTS Random weight structures for a network architecture
 %   eI describes an RNN via the fields layerSizes, inputDim and
 %   temporalLayer

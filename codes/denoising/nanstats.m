@@ -1,5 +1,11 @@
 function [p,m,n,s] = nanstats( x, d, av1, av2)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Averaging?
 if ~exist( 'av1', 'var')
 	av1 = 1;

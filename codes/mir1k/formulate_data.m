@@ -1,4 +1,11 @@
 function  varargout = formulate_data(train_files, eI, mode)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % (TODO) add
 % eI.winSize: Size of window
 % eI.seqLen: unique lengths (in ascending order)

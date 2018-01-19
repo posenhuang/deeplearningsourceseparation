@@ -1,4 +1,11 @@
 function [f,fv,tv] = stft2( s, sz, hp, pd, wn, w, pf, sr)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Short-time Fourier transform
 %
 % function [f,fv,tv] = stft( x, sz, hp, pd, wn, w, pf, sr)
@@ -19,7 +26,6 @@ function [f,fv,tv] = stft2( s, sz, hp, pd, wn, w, pf, sr)
 %  fv  Vector of frequencies for each spectrogram row
 %  tv  Vector of times for each spectrogram column
 
-% Paris Smaragdis 2010, paris@illinois.edu
 
 % Default size
 if ~exist( 'sz', 'var')

@@ -2,6 +2,13 @@ function n = drnn( x, y, z, context_win, hidden_units, num_layers, isdropout, ..
         isRNN, iscleanonly, circular_step , isinputL1, MFCCorlogMelorSpectrum, ...
         framerate, pos_neg_r, outputnonlinear, opt, act, train_mode, const,  ...
         const2, isGPU, max_iter, batchsize, lbfgs_iter, clip, wdecay)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Feed-forward regression neural net
 %  function n = nn6r( x, y, l, sg, ep, h, pl, et)
 %
@@ -21,8 +28,6 @@ function n = drnn( x, y, z, context_win, hidden_units, num_layers, isdropout, ..
 %  x are the input data
 %  y is the classifier structure
 %  n are the network outputs
-%
-%  Paris Smaragdis, 13-Dec-13
 
 
 % Forward pass

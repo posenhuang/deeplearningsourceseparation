@@ -1,5 +1,11 @@
 function [ cost, grad, numTotal, pred_cell ] = drdae_discrim_joint_kl_obj_gpu( theta, eI, data_cell, targets_cell, mixture_spectrum, fprop_only, pred_out)
-%%
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % discrim. training + joint masking using MATLAB GPU Toolbox
 %
 %PRNN_OBJ MinFunc style objective for Deep Recurrent Denoising Autoencoder

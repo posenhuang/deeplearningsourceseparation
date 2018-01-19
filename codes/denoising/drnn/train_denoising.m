@@ -2,7 +2,13 @@ function net=train_denoising(source_1, source_2, context_win, hidden_units, num_
     isRNN, iscleanonly, circular_step , isinputL1, MFCCorlogMelorSpectrum, ...
     framerate, pos_neg_r, outputnonlinear, opt, act, train_mode, const,  ...
     const2, isGPU, max_iter, grad_clip)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Demo Denoising training ---------------------------------------------
 % context_win - context window size
 % hidden_units - hidden units

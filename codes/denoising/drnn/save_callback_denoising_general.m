@@ -1,5 +1,11 @@
 function [ ] = save_callback_denoising_general( theta, info, state, eI, varargin)
-  % (TODO) add
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % save model and run evaluation while minfunc is running
 
 if mod(info.iteration, 100) == 0

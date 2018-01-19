@@ -1,5 +1,12 @@
 function test_mir1k_general_kl_bss3(modelname_in, theta, eI, stage, iter)
- % Run test and evaluation given a model.
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by: 	Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
+% Run test and evaluation given a model.
 
 if strcmp(stage,'testall') || strcmp(stage,'done')
 	eval_types={'dev','test'};
