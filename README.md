@@ -83,5 +83,5 @@ The codes are tested using MATLAB R2015a
 ## Related Implementations
 [source_separaton_ml_jeju](https://andabi.github.io/music-source-separation/)
 
-##License
+## License
 MIT
