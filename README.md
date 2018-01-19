@@ -35,7 +35,9 @@ Webpage: https://sites.google.com/site/deeplearningsourceseparation/
 
 ### Denosing experiment
 
-1. Demo
+1. Training code: ```codes/denoising/train_denoising_demo.m```
+
+2. Demo
  - Download a trained model ```http://www.ifp.illinois.edu/~huang146/DNN_separation/denoising_model_870.mat```
  - Put the model at ```codes/denoising/demo``` and go to the folder
  - Run the demo code at ```codes/denoising/demo/run_test_single_model.m```
@@ -74,5 +76,9 @@ that are used to handle the MFCC files.
 
 3. P.-S. Huang, M. Kim, M. Hasegawa-Johnson, P. Smaragdis, "[Deep Learning for Monaural Speech Separation](http://posenhuang.github.io/papers/DNN_Separation_ICASSP2014.pdf)," in IEEE International Conference on Acoustic, Speech and Signal Processing 2014.
 
+
+### Related Implementations
+[source_separaton_ml_jeju](https://andabi.github.io/music-source-separation/)
+
 ##License
-Apache License. For commercial use, please contact me.
+MIT
