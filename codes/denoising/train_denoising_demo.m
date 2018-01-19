@@ -26,7 +26,7 @@ pst = {
     {10000} % circular shift size 10000
     {20} % max_outer_iter
     {'spectra'}
-    {3} % isRNN
+    {1} % isRNN
     {0}  % discriminative training gamma parameter
     {0}  % isclean only
     {100} %batchsize,
@@ -51,4 +51,4 @@ figure(3)
 [p,m,n] = nanstats2( s, [4 2 1]);
 bare3( 1:4, p', m', n', .8, {{}}, 'Effect of Network Topology')
 set( gcf, 'name', 'Layers', 'paperposition', [0.25 5.75 8 2.75])
-legend({'RNN3'}, 'fontsize', 8, 'location', 'northwest')
+legend({'RNN1'}, 'fontsize', 8, 'location', 'northwest')
