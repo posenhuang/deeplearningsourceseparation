@@ -2,7 +2,7 @@ function [mixture, signal_1, signal_2]=load_data_mode(speaker_setting, data_mode
 % Copyright (c) 2014-present University of Illinois at Urbana-Champaign
 % All rights reserved.
 % 		
-% Developed by: 	Po-Sen Huang, Paris Smaragdis
+% Developed by:     Po-Sen Huang, Paris Smaragdis
 %                   Department of Electrical and Computer Engineering
 %                   Department of Computer Science
 %

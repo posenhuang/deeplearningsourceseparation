@@ -2,7 +2,7 @@ function prediction = test_denoising_general_kl_bss3(mixture_wav, theta, eI, sta
 % Copyright (c) 2014-present University of Illinois at Urbana-Champaign
 % All rights reserved.
 % 		
-% Developed by: 	Po-Sen Huang, Paris Smaragdis
+% Developed by:     Po-Sen Huang, Paris Smaragdis
 %                   Department of Electrical and Computer Engineering
 %                   Department of Computer Science
 %
