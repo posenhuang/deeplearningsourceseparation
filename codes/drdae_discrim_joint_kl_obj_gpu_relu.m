@@ -16,7 +16,7 @@ function [ cost, grad, numTotal, pred_cell ] = drdae_discrim_joint_kl_obj_gpu_re
 %   pred_out is a binary flag for whether pred_cell is populated
 %            pred_cell only filled properly when utterances one per cell
 
-import parallel.gpu.GPUArray
+%import parallel.gpu.GPUArray
 
 gtheta = gpuArray(theta);
 
