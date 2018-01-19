@@ -1,4 +1,4 @@
-function [ ] = save_callback_mir1k_general( theta, info, state, eI, varargin)
+function [ ] = save_callback_denoising_general( theta, info, state, eI, varargin)
   % (TODO) add
 % save model and run evaluation while minfunc is running
 

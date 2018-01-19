@@ -70,7 +70,7 @@ options.MaxFunEvals = 2500;
 options.Corr = 50;
 options.DerivativeCheck = 'off';
 % options.DerivativeCheck = 'on';
-options.outputFcn = @save_callback_mir1k_general;
+options.outputFcn = @save_callback_denoising_general;
 
 % eI.DataPath=[codeDir,'mir1k', filesep, 'Wavfile',filesep];
 

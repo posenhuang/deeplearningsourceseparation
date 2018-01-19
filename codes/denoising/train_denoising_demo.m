@@ -1,4 +1,4 @@
-function denoising_demo()
+function train_denoising_demo()
 %% Global parameters
 rand('state',0)
 randn('state',0)
