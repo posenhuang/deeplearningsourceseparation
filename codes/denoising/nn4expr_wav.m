@@ -1,4 +1,11 @@
 function [s,r] = nn4expr_wav( nspkr, spkrt, nf, g, pst, lo, evl)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 %% Add wav component to training (mixture), test(mixture) in order to pass
 %  information to drnn codes
 

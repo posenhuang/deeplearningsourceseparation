@@ -1,6 +1,12 @@
 function run_test_single_model
-% (TODO) add
-% Given a model, evaluate the performance.
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
+%% Given a model, evaluate the performance.
     baseDir = '../../';
     addpath([baseDir, filesep, 'codes']);
     addpath([baseDir, filesep, 'tools', filesep,'bss_eval']);

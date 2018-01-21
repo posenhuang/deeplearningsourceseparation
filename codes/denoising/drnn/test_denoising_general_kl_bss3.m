@@ -1,5 +1,12 @@
 function prediction = test_denoising_general_kl_bss3(mixture_wav, theta, eI, stage, iter)
- % Run test and evaluation given a model.
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
+% Run test and evaluation given a model.
     mixture = mixture_wav;
 
     winsize = eI.winsize;    nFFT = eI.nFFT;    hop = eI.hop;    scf=eI.scf;

@@ -2,7 +2,13 @@ function train_mir1k_demo(context_win, hidden_units, num_layers, isdropout, ...
     isRNN, iscleanonly, circular_step , isinputL1, MFCCorlogMelorSpectrum, ...
     framerate, pos_neg_r, outputnonlinear, opt, act, train_mode, const,  ...
     const2, isGPU)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Demo MIR-1K training ---------------------------------------------
 % context_win - context window size
 % hidden_units - hidden units

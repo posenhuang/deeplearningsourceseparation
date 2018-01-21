@@ -1,7 +1,12 @@
 function [ri,ti] = traintestindex( s, l1, l2, l3, l4)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Create a training/testing data set based ont he leave-out info provided
-
-% Paris Smaragdis - 13-Dec-13
 
 ri = [];
 ti = [];

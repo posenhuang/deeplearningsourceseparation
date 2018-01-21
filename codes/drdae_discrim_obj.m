@@ -1,6 +1,12 @@
 function [ cost, grad, numTotal, pred_cell ] = drdae_discrim_obj( ...
     theta, eI, data_cell, targets_cell, fprop_only, pred_out)
-%%
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % discrim. training (not joint)
 %
 %PRNN_OBJ MinFunc style objective for Deep Recurrent Denoising Autoencoder

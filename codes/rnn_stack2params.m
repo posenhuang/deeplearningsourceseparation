@@ -1,4 +1,11 @@
 function [ params ] = rnn_stack2params( stack, eI, W_t, sum_tied )
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 %RNN_STACK2PARAMS converts stack structure of RNN weights to single vector
 %   Takes a stack strcutre with stack{l}.W and stack{l}.b for each layer
 %   Also takes single matrix of temporal weights W_t

@@ -1,5 +1,11 @@
 function test_timit_general_kl_recurrent(modelname_in, theta, eI, stage, iter)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 eval_types={'dev','test'};
 normalize = inline('x./max(abs(x)+1e-3)');
 

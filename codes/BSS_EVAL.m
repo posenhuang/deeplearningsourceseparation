@@ -1,7 +1,13 @@
 function Parms =  BSS_EVAL...
   (wav_truth_signal, wav_truth_noise, wav_pred_signal, wav_pred_noise, wav_mix)
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 % Evaluate performance using BSS Eval 2.0
-
 %% evaluate
 if length(wav_pred_noise)==length(wav_truth_noise)
     sep = [wav_pred_noise , wav_pred_signal]';

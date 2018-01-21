@@ -1,6 +1,10 @@
-
-% TSPpath='~/Documents/Study/Research - UIUC/Sound Repository/TSP_speech/48k/';
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 fs=16000;
 
 len =[];

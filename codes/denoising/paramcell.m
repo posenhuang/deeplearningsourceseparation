@@ -1,5 +1,11 @@
 function [w,v] = paramcell( xi)
-
+% Copyright (c) 2014-present University of Illinois at Urbana-Champaign
+% All rights reserved.
+% 		
+% Developed by:     Po-Sen Huang, Paris Smaragdis
+%                   Department of Electrical and Computer Engineering
+%                   Department of Computer Science
+%
 n = length( xi);
 j = 1:n;
 siz = cellfun( @length, xi);
